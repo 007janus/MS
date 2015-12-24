@@ -14,5 +14,5 @@ urlpatterns = patterns('',
 
 #    url(r'^xadmin/', include(xadmin.site.urls)),
 	url(r'^hostinfo$','hostinfo.views.index'),
-	url(r'^xadmin/', include(xadmin.site.urls), name='xadmin'),
+	url(r'^host/', include(xadmin.site.urls), name='xadmin'),
 )

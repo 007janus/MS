@@ -62,7 +62,7 @@ class BatchChangeAction(BaseActionView):
 
     action_name = "change_selected"
     description = ugettext_lazy(
-        u'Batch Change selected %(verbose_name_plural)s')
+        u'Batch Change selected %(verbose_name)s')
 
     batch_change_form_template = None
 
@@ -129,7 +129,7 @@ class BatchChangeAction(BaseActionView):
         if count == 1:
             objects_name = force_unicode(self.opts.verbose_name)
         else:
-            objects_name = force_unicode(self.opts.verbose_name_plural)
+            objects_name = force_unicode(self.opts.verbose_name)
 
         context = self.get_context()
         context.update({

@@ -222,7 +222,7 @@ class RecoverListView(BaseReversionView):
             "opts": opts,
             "app_label": opts.app_label,
             "model_name": capfirst(opts.verbose_name),
-            "title": _("Recover deleted %(name)s") % {"name": force_unicode(opts.verbose_name_plural)},
+            "title": _("Recover deleted %(name)s") % {"name": force_unicode(opts.verbose_name)},
             "deleted": deleted,
             "changelist_url": self.model_admin_url("changelist"),
         })
@@ -262,7 +262,7 @@ class RevisionListView(BaseReversionView):
         context.update({
             'title': _('Change history: %s') % force_unicode(self.obj),
             'action_list': action_list,
-            'model_name': capfirst(force_unicode(opts.verbose_name_plural)),
+            'model_name': capfirst(force_unicode(opts.verbose_name)),
             'object': self.obj,
             'app_label': opts.app_label,
             "changelist_url": self.model_admin_url("changelist"),

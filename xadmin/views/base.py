@@ -298,8 +298,8 @@ class CommAdminView(BaseAdminView):
     base_template = 'xadmin/base_site.html'
     menu_template = 'xadmin/includes/sitemenu_default.html'
 
-    site_title = u"资产管理系统"
-    site_footer = None
+    site_title = u"丁丁资产管理系统"
+    site_footer = u"丁丁租房"
     global_models_icon = {}
     default_model_icon = None
     apps_label_title = {}
@@ -329,7 +329,7 @@ class CommAdminView(BaseAdminView):
             app_label = model._meta.app_label
             app_icon = None
             model_dict = {
-                'title': unicode(capfirst(model._meta.verbose_name_plural)),
+                'title': unicode(capfirst(model._meta.verbose_name)),
                 'url': self.get_model_url(model, "changelist"),
                 'icon': self.get_model_icon(model),
                 'perm': self.get_model_perm(model, 'view'),
@@ -360,6 +360,7 @@ class CommAdminView(BaseAdminView):
                 if app_label.lower() in self.apps_icons:
                     app_icon = self.apps_icons[app_label.lower()]
 
+                print model_dict
                 nav_menu[app_key] = {
                     'title': app_title,
                     'menus': [model_dict],
@@ -498,7 +499,7 @@ class ModelAdminView(CommAdminView):
     @filter_hook
     def get_breadcrumb(self):
         bcs = super(ModelAdminView, self).get_breadcrumb()
-        item = {'title': self.opts.verbose_name_plural}
+        item = {'title': self.opts.verbose_name}
         if self.has_view_permission():
             item['url'] = self.model_admin_url('changelist')
         bcs.append(item)

@@ -289,7 +289,9 @@ def model_format_dict(obj):
         opts = obj
     return {
         'verbose_name': force_unicode(opts.verbose_name),
-        'verbose_name_plural': force_unicode(opts.verbose_name_plural)
+        # 'verbose_name_plural': force_unicode(opts.verbose_name_plural)
+        'verbose_name_plural': force_unicode(opts.verbose_name)
+
     }
 
 
@@ -308,7 +310,9 @@ def model_ngettext(obj, n=None):
             n = obj.count()
         obj = obj.model
     d = model_format_dict(obj)
-    singular, plural = d["verbose_name"], d["verbose_name_plural"]
+    # singular, plural = d["verbose_name"], d["verbose_name_plural"]
+    singular, plural = d["verbose_name"], d["verbose_name"]
+
     return ungettext(singular, plural, n or 0)
 
 def is_rel_field(name,model):
@@ -387,10 +391,10 @@ def label_for_field(name, model, model_admin=None, return_attr=False):
                     label = field.opts.verbose_name
                 else:
                     label = field.verbose_name
-                
+
                 rel_model = field.rel.to
                 rel_label = label_for_field(name, rel_model, model_admin=model_admin, return_attr=return_attr)
-                
+
                 if return_attr:
                     rel_label,attr = rel_label
                     return ("%s %s"%(label,rel_label), attr)

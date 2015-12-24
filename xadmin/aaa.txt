@@ -1,0 +1,20 @@
+./util.py:    Return a `dict` with keys 'verbose_name' and 'verbose_name_plural',
+./util.py:        # 'verbose_name_plural': force_unicode(opts.verbose_name_plural)
+./util.py:        'verbose_name_plural': force_unicode(opts.verbose_name)
+./util.py:    Return the appropriate `verbose_name` or `verbose_name_plural` value for
+./util.py:    # singular, plural = d["verbose_name"], d["verbose_name_plural"]
+./plugins/xversion.py:            "title": _("Recover deleted %(name)s") % {"name": force_unicode(opts.verbose_name_plural)},
+./plugins/xversion.py:            'model_name': capfirst(force_unicode(opts.verbose_name_plural)),
+./plugins/chart.py:                        "%s Charts") % self.model._meta.verbose_name_plural
+./plugins/actions.py:    description = _(u'Delete selected %(verbose_name_plural)s')
+./plugins/actions.py:            objects_name = force_unicode(self.opts.verbose_name_plural)
+./plugins/topnav.py:                            'title': _('Search %s') % capfirst(model._meta.verbose_name_plural),
+./plugins/batch.py:        u'Batch Change selected %(verbose_name_plural)s')
+./plugins/batch.py:            objects_name = force_unicode(self.opts.verbose_name_plural)
+./plugins/relate.py:        return mark_safe(u"<span class='rel-brand'>%s <i class='fa fa-caret-right'></i></span> %s" % (to_model_name, force_unicode(self.opts.verbose_name_plural)))
+./models.py:        # verbose_name_plural = _('Bookmarks')
+./models.py:        verbose_name_plural = verbose_name
+./models.py:        # verbose_name_plural = _('User Settings')
+./models.py:        verbose_name_plural = verbose_name
+./models.py:        # verbose_name_plural = _('User Widgets')
+./models.py:        verbose_name_plural = verbose_name

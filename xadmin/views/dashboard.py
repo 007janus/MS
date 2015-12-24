@@ -423,7 +423,7 @@ class ListWidget(ModelBaseWidget, PartialBaseWidget):
         super(ListWidget, self).setup()
 
         if not self.title:
-            self.title = self.model._meta.verbose_name_plural
+            self.title = self.model._meta.verbose_name
 
         req = self.make_get_request("", self.list_params)
         self.list_view = self.get_view_class(ListAdminView, self.model)(req)

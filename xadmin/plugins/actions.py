@@ -51,7 +51,7 @@ class BaseActionView(ModelAdminView):
 class DeleteSelectedAction(BaseActionView):
 
     action_name = "delete_selected"
-    description = _(u'Delete selected %(verbose_name_plural)s')
+    description = _(u'Delete selected %(verbose_name)s')
 
     delete_confirmation_template = None
     delete_selected_confirmation_template = None
@@ -99,7 +99,7 @@ class DeleteSelectedAction(BaseActionView):
         if len(queryset) == 1:
             objects_name = force_unicode(self.opts.verbose_name)
         else:
-            objects_name = force_unicode(self.opts.verbose_name_plural)
+            objects_name = force_unicode(self.opts.verbose_name)
 
         if perms_needed or protected:
             title = _("Cannot delete %(name)s") % {"name": objects_name}

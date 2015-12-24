@@ -47,7 +47,7 @@ class ChartWidget(ModelBaseWidget):
                 self.charts = model_admin.data_charts
                 if self.title is None:
                     self.title = ugettext(
-                        "%s Charts") % self.model._meta.verbose_name_plural
+                        "%s Charts") % self.model._meta.verbose_name
 
     def filte_choices_model(self, model, modeladmin):
         return bool(getattr(modeladmin, 'data_charts', None)) and \
