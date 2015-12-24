@@ -66,9 +66,9 @@ class MysqlAccountAdmin(object):
 		'pas',
 		'sqlaccount',
 		'authority',
-		'rang',
+		'ran',
 		'desc']
-    search_fields = ('sql','ip','pas','sqlaccount','authority','rang','desc')
+    search_fields = ('sql','ip','pas','sqlaccount','authority','ran','desc')
 
 class OtherAccountAdmin(object):
     list_display = [
